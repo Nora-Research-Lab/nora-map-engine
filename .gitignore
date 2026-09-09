@@ -1,0 +1,28 @@
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# --- Node / frontend ---
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# --- App data (ephemeral, generated) ---
+backend/data/
+
+# --- Env / secrets ---
+.env
+*.env.local
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+
+# --- Tests ---
+.pytest_cache/
+htmlcov/
+.coverage

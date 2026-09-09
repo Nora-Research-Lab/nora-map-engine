@@ -1,0 +1,56 @@
+/*
+  NORA Map Engine design tokens.
+
+  Palette is deliberately dark and mineral-toned rather than a generic
+  light SaaS theme: a deep basalt background, a copper/ore accent for
+  primary actions, and a cyan accent for geophysical/water data so the
+  two most common data families in this product (mineral vs. geophysics)
+  are visually distinct on sight, not just by label.
+
+  Typography: Space Grotesk carries UI text and headings (a geometric
+  grotesk with enough character to avoid looking like a template).
+  IBM Plex Mono is used ONLY where numbers need to align or be scanned
+  precisely -- coordinates, legend values, stats -- which is a real,
+  functional use of a monospace face, not a decorative one.
+*/
+:root {
+  /* Surfaces */
+  --bg-void: #0c1310;
+  --bg-surface: #131c18;
+  --bg-raised: #1a251f;
+  --bg-overlay: rgba(19, 28, 24, 0.92);
+  --line: #263831;
+  --line-soft: #1e2c26;
+
+  /* Text */
+  --ink: #e8ede9;
+  --ink-dim: #8fa79c;
+  --ink-faint: #5d7168;
+
+  /* Accents */
+  --copper: #c97c4a;
+  --copper-dim: #8a5433;
+  --cyan: #4fb6b0;
+  --cyan-dim: #316663;
+  --amber: #d9a441;
+  --danger: #c9584a;
+
+  /* Elevation */
+  --shadow-panel: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+
+  /* Type */
+  --font-ui: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Radii / spacing */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+}

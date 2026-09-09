@@ -1,0 +1,27 @@
+# --- Web framework ---
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+pydantic==2.10.3
+pydantic-settings==2.6.1
+python-multipart==0.0.19
+
+# --- Geospatial ---
+# geopandas 1.x uses pyogrio (not fiona) by default -- lighter, faster, and
+# avoids a second GDAL binding on a memory-constrained instance.
+geopandas==1.0.1
+pyogrio==0.10.0
+shapely==2.0.6
+pyproj==3.7.0
+rasterio==1.4.3
+pyarrow==18.1.0
+
+# --- Scientific ---
+numpy==2.2.0
+pandas==2.2.3
+Pillow==11.0.0
+
+# --- Hugging Face dataset catalog ---
+huggingface-hub==0.26.5
+
+# --- HTTP ---
+httpx==0.28.1

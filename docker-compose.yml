@@ -1,0 +1,21 @@
+# Convenience for local testing of the production image (frontend + backend
+# together, exactly as Render will run it). For day-to-day development with
+# hot reload, it's faster to run the two dev servers directly instead --
+# see README.md "Local development" -- but this is handy for a final check
+# before pushing.
+services:
+  nora-map-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=development
+      - CORS_ORIGINS=*
+      - HF_ORG=NoraResearchLab
+    volumes:
+      - nora-map-engine-data:/app/backend/data
+
+volumes:
+  nora-map-engine-data:

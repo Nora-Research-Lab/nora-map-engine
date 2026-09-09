@@ -1,0 +1,210 @@
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* --- Top bar --- */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: 10px var(--space-4);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--line);
+  z-index: 30;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  color: var(--ink);
+}
+.brand-mark { color: var(--copper); font-size: 16px; }
+.brand-name { font-weight: 700; font-size: 14px; letter-spacing: 0.01em; }
+.topbar-intent { flex: 1; min-width: 0; }
+
+/* --- Intent bar --- */
+.intent-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  flex-wrap: wrap;
+}
+.intent-input {
+  flex: 1;
+  min-width: 220px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+}
+.intent-input:focus { outline: none; }
+.intent-suggestions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.intent-chip { cursor: pointer; }
+.intent-chip:hover { border-color: var(--copper); color: var(--copper); }
+
+/* --- Body layout --- */
+.app-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  width: 76px;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: var(--space-3) 0;
+  gap: 4px;
+  z-index: 20;
+}
+.sidebar-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: var(--ink-dim);
+  padding: 10px 4px;
+}
+.sidebar-item:hover { color: var(--ink); background: var(--bg-raised); }
+.sidebar-item.active { color: var(--copper); }
+.sidebar-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  background: var(--copper);
+  border-radius: 0 3px 3px 0;
+}
+.sidebar-icon { font-size: 18px; }
+.sidebar-label { font-size: 10px; }
+.sidebar-badge {
+  position: absolute;
+  top: 4px;
+  right: 12px;
+  background: var(--copper);
+  color: #1a0f08;
+  font-size: 9px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 1px 5px;
+}
+
+/* --- Map area --- */
+.map-area {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+/* --- Floating panel drawer --- */
+.panel-drawer {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  bottom: var(--space-4);
+  width: 340px;
+  max-width: calc(100% - 32px);
+  display: flex;
+  flex-direction: column;
+  z-index: 15;
+}
+.panel-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+.panel-drawer-body {
+  padding: var(--space-4);
+  flex: 1;
+}
+
+/* --- Coordinate readout --- */
+.coord-readout {
+  position: absolute;
+  bottom: var(--space-3);
+  right: var(--space-3);
+  background: var(--bg-overlay);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  font-size: 11px;
+  color: var(--ink-dim);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.measure-hint {
+  position: absolute;
+  top: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 14px;
+  font-size: 12px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+}
+
+/* --- Toast --- */
+.toast {
+  position: absolute;
+  bottom: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 16px;
+  font-size: 13px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 480px;
+}
+
+/* --- Dataset cards / dropzone --- */
+.dropzone {
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.dropzone:hover, .dropzone.active { border-color: var(--copper); }
+.dataset-card {}
+.legend-gradient {
+  height: 8px;
+  border-radius: 4px;
+}
+
+/* --- Layer manager --- */
+.layer-row {}
+.layer-config { font-size: 12px; }
+
+/* --- Responsive / embed-narrow behavior --- */
+@media (max-width: 720px) {
+  .sidebar { width: 56px; }
+  .sidebar-label { display: none; }
+  .panel-drawer { left: var(--space-2); right: var(--space-2); width: auto; }
+  .topbar { flex-wrap: wrap; }
+  .intent-suggestions { display: none; }
+}

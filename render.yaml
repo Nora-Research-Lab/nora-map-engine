@@ -1,0 +1,31 @@
+# Render Blueprint for NORA Map Engine.
+# Deploy: push this repo to GitHub, then in Render choose
+# "New +" -> "Blueprint" and point it at the repo. Render reads this file
+# and provisions everything below automatically. See README.md for the
+# full walkthrough.
+services:
+  - type: web
+    name: nora-map-engine
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: CORS_ORIGINS
+        value: "*"           # tighten to your embedding domain(s) once known
+      - key: HF_ORG
+        value: NoraResearchLab
+      - key: HF_CATALOG_CACHE_SECONDS
+        value: "21600"
+      - key: MAX_UPLOAD_MB
+        value: "25"
+      - key: AGDFS_BASE_URL
+        value: https://agdfs.onrender.com
+      # Set this if the NORA Research Lab HF org (or specific datasets)
+      # is ever made private:
+      # - key: HF_TOKEN
+      #   sync: false
